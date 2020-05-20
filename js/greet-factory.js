@@ -27,13 +27,9 @@ function GreetFactory(stored) {
     }
 
     function getNameFromInput(textBoxValue) {
-        // pattern to match against input
         var regularExpression = /[^A-Za-z]/g;
-        // check if name is not empty string
         if (textBoxValue !== "") {
-            // using regular expression to take out numbers and special characters from input
             var lettersOnly = textBoxValue.replace(regularExpression, "")
-            // convert letters into name
             var name = lettersOnly.charAt(0).toUpperCase() + lettersOnly.slice(1).toLowerCase()
             return name;
         }
