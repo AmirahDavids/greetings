@@ -1,58 +1,56 @@
-function GreetFactory() {
+function GreetFactory(stored) {
 
-    var users = {};
+    var userMap = stored || {};
 
     function greetUser(name, language) {
+        addUser(name);
         switch (language) {
-            case "English":
-                return `Hello, ${name}`
-                break;
-            case "French":
-                return `Bonjour, ${name}`
-                break;
-            case "Afrikaans":
-                return `Hallo, ${name}`
-                break;
+            case "english":
+                return `Hello, ${name}`;
+            case "french":
+                return `Bonjour, ${name}`;
+            case "afrikaans":
+                return `Hallo, ${name}`;
             default:
-                return `Hallo, ${name}`
-                break;
+                return `Hallo, ${name}`;
         }
     }
 
     function addUser(userName) {
-        if (users[userName] === undefined) {
-            users[userName] = 0;
-            return true;
+        if (userMap[userName] === undefined) {
+            userMap[userName] = 0;
         }
-        return false;
     }
 
     function getGreetCount() {
-        return Object.keys(users).length
+        return Object.keys(userMap).length;
     }
 
-    function validateInput(textBoxValue) {
-        console.log(`this is the textbox input: ${textBoxValue}`);
-        var regularExpression =  /[^A-Za-z]/g;
-        var lettersOnly = textBoxValue.replace(regularExpression,"")
-        console.log(`this is letters only ${lettersOnly}`);
-        var name = `${lettersOnly.charAt(0).toUpperCase()}${lettersOnly.slice(1).toLowerCase()}`;
-        console.log(name);
-        
-        return name;
+    function getNameFromInput(textBoxValue) {
+        // pattern to match against input
+        var regularExpression = /[^A-Za-z]/g;
+        // check if name is not empty string
+        if (textBoxValue !== "") {
+            // using regular expression to take out numbers and special characters from input
+            var lettersOnly = textBoxValue.replace(regularExpression, "")
+            // convert letters into name
+            var name = lettersOnly.charAt(0).toUpperCase() + lettersOnly.slice(1).toLowerCase()
+            return name;
+        }
+        return "";
+    }
+
+    function getAllUsers(){
+        return userMap;
     }
 
     return {
         greetUser,
         getGreetCount,
-        validateInput
+        getNameFromInput,
+        getAllUsers
     }
-
 }
-
-// var i = GreetFactory();
-
-// i.getGreetCount()
 
 
 
