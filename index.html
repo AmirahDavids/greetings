@@ -2,20 +2,33 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/greet.css">
-    <script src="./js/greet-dom.js"></script>
-    <title>Greetings App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/greet.css">
+  <script src="./js/greet-dom.js"></script>
+  <title>Greetings App</title>
 </head>
 
 <body>
-    <div>Say hello in different language</div>
-    <h1 id="msg"></h1>
-   <input type="text" name="" id="">
-   <button>greet</button>
+  <!-- <div>Say hello in different language<//div> -->
+  <h2>Greetings App</h2>
+  <h3>Please enter name</h3>
+  <h1 id="msg"></h1>
+  <h1 id="counter"></h1>
+  <label class="">
+    <input type="radio" name="selector" value="english">
+    <span class="label-body">English</span>
+  </label>
+  <label class="">
+    <input type="radio" name="selector" value="afrikaans">
+    <span class="label-body">Afrikaans</span>
+  </label>
+  <label class="">
+    <input type="radio" name="selector" value="french">
+    <span class="label-body">French</span>
+  </label>
+  <input type="text" name="" id="inputElement">
+  <button id="greetButton">greet</button>
 </body>
-
-<script src="js/greet.js"></script>
-
+<script src="./js/greet-factory.js"></script>
 </html>
