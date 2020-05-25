@@ -1,0 +1,21 @@
+.angled-gradient {
+    background: linear-gradient(0deg, #FF930F,#FFF95B);
+    background-repeat: no-repeat;
+  }
+
+  html{
+      height: 100%;
+      text-align: center;
+  }
+
+  #inputElement{
+      text-align: center;
+      border: none;
+      height: 50px;
+      width: 200px;
+      border-radius: 1em;
+  }
+  .label-radio{
+      margin: 1em;
+  }
+  
