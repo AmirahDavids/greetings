@@ -39,6 +39,10 @@ function GreetFactory(stored) {
     function getAllUsers(){
         return userMap;
     }
+    function clear(){
+        
+    }
+
 
     return {
         greetUser,
