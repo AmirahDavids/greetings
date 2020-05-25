@@ -37,10 +37,13 @@ function GreetFactory(stored) {
     }
 
     function getAllUsers(){
+        // this is to be used for local storage
         return userMap;
     }
-    function clear(){
-        
+
+    function resetBtn(){
+        userMap = {};
+        localStorage.clear("greetedUsers");
     }
 
 
@@ -48,7 +51,8 @@ function GreetFactory(stored) {
         greetUser,
         getGreetCount,
         getNameFromInput,
-        getAllUsers
+        getAllUsers,
+        resetBtn
     }
 }
 

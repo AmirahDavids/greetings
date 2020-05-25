@@ -1,15 +1,16 @@
 window.addEventListener("DOMContentLoaded", function () {
 
-    // these are refernces to the elements on the screen
     var inputBox = document.getElementById("inputElement")
     var greetBtn = document.getElementById("greetButton")
     var message = document.getElementById("msg")
     var total = document.getElementById("counter")
+    var resetBtn = document.getElementById("resetButton")
 
     // this is getting the users from local storage
-    var stored = JSON.parse(localStorage['greetedUsers']);
-    
-    //this the instance of the greet factory with stored--
+    // using a ternary operator    (localStorage['greetedUsers']) ? true : false;
+    var stored = localStorage['greetedUsers'] ? JSON.parse(localStorage['greetedUsers']) : {};
+
+    //this the instance of the greet factory with stored users
     var greetFactory = GreetFactory(stored);
 
     window.addEventListener("load", function () {
@@ -34,5 +35,11 @@ window.addEventListener("DOMContentLoaded", function () {
         } else {
             message.innerHTML = `no language selected.`
         }
+    });
+
+    // this is the greet buttons event handler 
+    resetBtn.addEventListener("click", function () {
+        greetFactory.resetBtn();
+        location.reload();
     });
 });
